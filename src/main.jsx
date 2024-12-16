@@ -36,13 +36,14 @@ const router = createBrowserRouter([
       },
       {
         path: 'allCampaign',
-        element: <AllCampaign></AllCampaign>
+        element: <AllCampaign></AllCampaign>,
+        loader: () => fetch('http://localhost:5000/campaign')
       },
       {
         // path: 'updateCoffee/:id',
         path: 'Campaign',
         element: <Campaign></Campaign>,
-        // loader: ({ params }) => fetch(`https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/coffee/${params.id}`)
+        loader: ({ params }) => fetch(`https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/coffee/${params.id}`)
       },
       {
         // path: 'updateCoffee/:id',
@@ -75,11 +76,14 @@ const router = createBrowserRouter([
     path: "campaignDetail/:id",
     element:<CampaignDetail></CampaignDetail>,
     loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+      
   }
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={router} />
+   <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

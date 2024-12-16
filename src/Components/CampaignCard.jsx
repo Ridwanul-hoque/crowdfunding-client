@@ -1,14 +1,14 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CampaignCard = ({campaign}) => {
     const {_id, title, type, amount, deadline, email, name, description, photo} = campaign;
     const navigate = useNavigate()
 
-    const handleSeeMore = (id) => {
-        // console.log("Navigating to donate:", id); 
-        navigate(`/campaignDetail/${_id}`); 
-    };
+    // const handleSeeMore = (id) => {
+    //     navigate(`/campaignDetail/${id}`)
+         
+    // };
     return (
         <div className="card card-compact bg-base-100 w-96 shadow-xl">
             <figure>
@@ -26,7 +26,7 @@ const CampaignCard = ({campaign}) => {
                 <p className='font-bold'>Description:</p>
                 <p>{description}</p>
                 <div className="card-actions justify-end">
-                    <button onClick={() => handleSeeMore(_id)} className="btn bg-orange-400 text-white">See More</button>
+                    <Link to={`/campaignDetail/${_id}`}><button className="btn bg-orange-400 text-white">See More</button></Link>
                 </div>
             </div>
         </div>
