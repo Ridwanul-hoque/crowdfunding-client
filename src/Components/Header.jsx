@@ -34,7 +34,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Crowdcube</a>
+                <img className='w-50 h-40' src="https://i.ibb.co.com/Hhtj8tF/download-7.png" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -42,8 +42,8 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'><a className="btn mr-5">Login</a></Link>
-                <Link to='/register'><a className="btn">Register</a></Link>
+                <Link to='/login'><button className="btn mr-2 bg-orange-400">Login</button></Link>
+                <Link to='/register'><button className="btn bg-orange-400">Register</button></Link>
                 
             </div>
         </div>
