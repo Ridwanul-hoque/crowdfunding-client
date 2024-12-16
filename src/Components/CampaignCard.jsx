@@ -7,7 +7,7 @@ const CampaignCard = ({campaign}) => {
 
     const handleSeeMore = (id) => {
         // console.log("Navigating to donate:", id); 
-        navigate(`/donate/${_id}`); 
+        navigate(`/campaignDetail/${_id}`); 
     };
     return (
         <div className="card card-compact bg-base-100 w-96 shadow-xl">
