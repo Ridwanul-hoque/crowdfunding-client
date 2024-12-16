@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import "animate.css";
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import CampaignCard from './campaignCard';
+
 
 const Home = () => {
     const [animationKey, setAnimationKey] = useState(0);
+
+    const campaigns = useLoaderData()
 
     const handleSlideChange = () => {
         // Increment key to re-trigger animations
@@ -132,6 +136,16 @@ const Home = () => {
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+
+            <div>
+                <h1 className='text-2xl font-bold text-orange-400 bg-slate-100 p-2 rounded my-2 italic '>Running Campaign</h1>
+                <div className='grid grid-cols-3 gap-x-4 gap-y-3 my-2'>
+                    {
+                        campaigns.map(campaign => <CampaignCard key={campaign._id} campaign={campaign}></CampaignCard>)
+                    }
                 </div>
             </div>
         </div>

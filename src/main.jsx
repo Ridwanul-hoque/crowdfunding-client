@@ -15,6 +15,7 @@ import Campaign from './Components/Campaign.jsx';
 import Donation from './Components/Donation.jsx';
 import Home from './Components/Home.jsx';
 import Registration from './Pages/Registration.jsx';
+import CampaignDetail from './Pages/CampaignDetail.jsx';
 
 
 
@@ -30,7 +31,8 @@ const router = createBrowserRouter([
       // },
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/campaign')
       },
       {
         path: 'allCampaign',
@@ -69,6 +71,11 @@ const router = createBrowserRouter([
       // }
     ]
   },
+  {
+    path: "campaignDetail/:id",
+    element:<CampaignDetail></CampaignDetail>,
+    loader: ({params}) => fetch(`http://localhost:5000/campaign/${_id}`)
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(

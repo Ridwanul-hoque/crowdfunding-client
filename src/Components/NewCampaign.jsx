@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2'
 
 const NewCampaign = () => {
     const handleCampaign = event => {
@@ -16,11 +17,32 @@ const NewCampaign = () => {
         const photo = form.photo.value;
 
 
-        const newCoffee = {title, type, amount, deadline, email, name, description, photo}
+        const newCampaign = { title, type, amount, deadline, email, name, description, photo }
 
-        console.log(newCoffee)
-        
-        
+        console.log(newCampaign)
+
+        fetch('http://localhost:5000/campaign', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newCampaign)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Campaign added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Great'
+                    })
+                    event.target.reset();
+                }
+            })
+
+
     }
     return (
         <div className='bg-orange-100 p-4 rounded-lg mb-6'>
