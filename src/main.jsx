@@ -18,6 +18,7 @@ import Registration from './Pages/Registration.jsx';
 import CampaignDetail from './Pages/CampaignDetail.jsx';
 import AuthProvider from './Provider/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRouter.jsx';
+import UpdateCampaign from './Pages/UpdateCampaign.jsx';
 
 
 
@@ -58,10 +59,9 @@ const router = createBrowserRouter([
         // loader: ({ params }) => fetch(`https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/coffee/${params.id}`)
       },
       {
-        // path: 'updateCoffee/:id',
         path: 'donation',
         element: <PrivateRoute><Donation></Donation></PrivateRoute>,
-        // loader: ({ params }) => fetch(`https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/coffee/${params.id}`)
+        
       },
       {
         path: "login",
@@ -71,11 +71,7 @@ const router = createBrowserRouter([
         path: "register",
         element: <Registration></Registration>
       },
-      // {
-      //   path:'users',
-      //   element:<Users></Users>,
-      //   // loader: ()=> fetch('https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/users')
-      // }
+      
     ]
   },
   {
@@ -83,7 +79,13 @@ const router = createBrowserRouter([
     element: <PrivateRoute><CampaignDetail></CampaignDetail></PrivateRoute>,
     loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
       
-  }
+  },
+  {
+    path: "updateCampaign/:id",
+    element: <UpdateCampaign></UpdateCampaign>,
+    loader: () => fetch('http://localhost:5000/campaign')
+  },
+
 ]);
 
 createRoot(document.getElementById('root')).render(

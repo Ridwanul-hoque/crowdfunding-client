@@ -31,7 +31,32 @@ const Campaign = () => {
           console.error("Error fetching campaigns: ", err);
         });
     }
-  }, [user]);  // Re-run when `user` changes
+  }, [user]); 
+
+  const handleUpdate = (campaignId) => {
+    // Redirect to the update page for the selected campaign
+    window.location.href = `/updateCampaign/${campaignId}`;
+  };
+
+  const handleDelete = (campaignId) => {
+    // Confirm before deleting the campaign
+    const confirmDelete = window.confirm("Are you sure you want to delete this campaign?");
+    if (confirmDelete) {
+      fetch(`http://localhost:5000/campaign/${campaignId}`, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Campaign deleted successfully");
+          // Remove the deleted campaign from the list
+          setFilteredCampaigns(filteredCampaigns.filter(campaign => campaign._id !== campaignId));
+        })
+        .catch((err) => {
+          toast.error("Failed to delete campaign");
+          console.error("Error deleting campaign: ", err);
+        });
+    }
+  };
 
   return (
     <div className="px-6 py-4">

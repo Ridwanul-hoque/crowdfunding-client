@@ -1,10 +1,39 @@
 
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    // Check the stored theme in localStorage on mount and set it
+    useEffect(() => {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            setIsDarkMode(savedTheme === 'dark');
+        }
+    }, []); // Runs only on mount
+    
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [isDarkMode]);// This runs whenever isDarkMode changes
+
+    // Toggle theme
+    const toggleTheme = () => {
+        setIsDarkMode((prevMode) => {
+            const newMode = !prevMode;
+            localStorage.setItem('theme', newMode ? 'dark' : 'light');
+            console.log('Dark Mode: ', newMode);  // Debugging
+            return newMode;
+        });
+    };
+    
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -21,7 +50,7 @@ const Header = () => {
     };
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 dark:bg-gray-900">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -47,7 +76,7 @@ const Header = () => {
                 <img className='w-50 h-40' src="https://i.ibb.co.com/Hhtj8tF/download-7.png" alt="" />
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
+                <ul className="menu menu-horizontal px-1 text-orange-400">
                     {links}
                 </ul>
             </div>
@@ -71,6 +100,9 @@ const Header = () => {
                         <Link to='/register'><button className="btn bg-orange-400">Register</button></Link>
                     </>
                 )}
+                <button onClick={toggleTheme} className="btn bg-orange-400">
+                    {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                </button>
             </div>
         </div>
     );

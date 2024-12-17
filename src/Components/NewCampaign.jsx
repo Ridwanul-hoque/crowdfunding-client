@@ -1,6 +1,8 @@
 import React from 'react';
 import Swal from 'sweetalert2'
 
+
+
 const NewCampaign = () => {
     const handleCampaign = event => {
         event.preventDefault();
@@ -47,6 +49,7 @@ const NewCampaign = () => {
     return (
         <div className='bg-orange-100 p-4 rounded-lg mb-6'>
             <h2 className='text-2xl font-extrabold flex justify-center'>Add Your Campaign</h2>
+             
             <form onSubmit={handleCampaign} className="card-body">
                 {/* form first row */}
                 <div className='flex flex-col lg:flex-row gap-5'>
