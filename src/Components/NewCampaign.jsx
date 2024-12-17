@@ -25,7 +25,7 @@ const NewCampaign = () => {
 
         console.log(newCampaign)
 
-        fetch('http://localhost:5000/campaign', {
+        fetch('https://crowdfunding-server-gray.vercel.app/campaign', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

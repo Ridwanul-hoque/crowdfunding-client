@@ -35,7 +35,7 @@ const CampaignDetail = () => {
         };
 
         // Send the donation data to the backend
-        fetch('http://localhost:5000/donations', {
+        fetch('https://crowdfunding-server-gray.vercel.app/donations', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(donationData),

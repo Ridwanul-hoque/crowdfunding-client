@@ -15,7 +15,7 @@ const Donation = () => {
         }
 
         // Fetch donations specific to the logged-in user
-        fetch(`http://localhost:5000/donations?email=${user.email}`, {
+        fetch(`https://crowdfunding-server-gray.vercel.app/donations?email=${user.email}`, {
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${user.email}`, // Optional: Pass user email for validation

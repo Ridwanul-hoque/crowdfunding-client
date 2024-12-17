@@ -20,7 +20,7 @@ const UpdateCampaign = () => {
       };
   
       // Send the update request to the server
-      fetch(`http://localhost:5000/campaign/${_id}`, {
+      fetch(`https://crowdfunding-server-gray.vercel.app/campaign/${_id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedCampaign),

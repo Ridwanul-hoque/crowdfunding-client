@@ -61,7 +61,7 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 - **Server Side**: Hosted on Vercel.
 
 ## Live Site URL
-[Insert Live Site Link Here]
+[(https://crowdfunding-6ef9b.web.app/)]
 
 ## How to Run Locally
 
@@ -72,7 +72,7 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 
 
 
-5. Access the application at `http://localhost:5000`.
+5. Access the application at `https://crowdfunding-server-gray.vercel.app`.
 
 ## Technology Stack
 - **Frontend**: React.js, Tailwind CSS

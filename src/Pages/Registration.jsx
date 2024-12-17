@@ -23,7 +23,7 @@ const SignUp = () => {
                 const newUser = { name, email, createdAt, photo }
 
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://crowdfunding-server-gray.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

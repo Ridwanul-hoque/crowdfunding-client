@@ -10,7 +10,7 @@ const Campaign = () => {
   useEffect(() => {
     if (user?.email) {
       // Fetch all campaigns
-      fetch('http://localhost:5000/campaign')
+      fetch('https://crowdfunding-server-gray.vercel.app/campaign')
         .then((res) => res.json())
         .then((data) => {
           setCampaigns(data);
@@ -42,7 +42,7 @@ const Campaign = () => {
     // Confirm before deleting the campaign
     const confirmDelete = window.confirm("Are you sure you want to delete this campaign?");
     if (confirmDelete) {
-      fetch(`http://localhost:5000/campaign/${campaignId}`, {
+      fetch(`https://crowdfunding-server-gray.vercel.app/campaign/${campaignId}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

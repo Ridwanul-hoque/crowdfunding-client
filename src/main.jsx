@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://crowdfunding-server-gray.vercel.app/campaign')
       },
       {
         path: 'home', 
@@ -44,13 +44,13 @@ const router = createBrowserRouter([
       {
         path: 'allCampaign',
         element: <AllCampaign></AllCampaign>,
-        loader: () => fetch('http://localhost:5000/campaign')
+        loader: () => fetch('https://crowdfunding-server-gray.vercel.app/campaign')
       },
       {
         // path: 'updateCoffee/:id',
         path: 'Campaign',
         element: <PrivateRoute><Campaign></Campaign></PrivateRoute>,
-        // loader: () => fetch(`http://localhost:5000/campaign?email=${user.email}`)
+        // loader: () => fetch(`https://crowdfunding-server-gray.vercel.app/campaign?email=${user.email}`)
       },
       {
         // path: 'updateCoffee/:id',
@@ -77,13 +77,13 @@ const router = createBrowserRouter([
   {
     path: "campaignDetail/:id",
     element: <PrivateRoute><CampaignDetail></CampaignDetail></PrivateRoute>,
-    loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+    loader: ({params}) => fetch(`https://crowdfunding-server-gray.vercel.app/campaign/${params.id}`)
       
   },
   {
     path: "updateCampaign/:id",
     element: <UpdateCampaign></UpdateCampaign>,
-    loader: () => fetch('http://localhost:5000/campaign')
+    loader: () => fetch('https://crowdfunding-server-gray.vercel.app/campaign')
   },
 
 ]);
