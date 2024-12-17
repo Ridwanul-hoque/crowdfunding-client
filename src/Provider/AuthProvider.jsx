@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
-    signInUser,
+    userLogin: signInUser,
     logout, // Add logout function to context
   };
 

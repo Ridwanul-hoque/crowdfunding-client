@@ -37,6 +37,10 @@ const router = createBrowserRouter([
         loader: () => fetch('http://localhost:5000/campaign')
       },
       {
+        path: 'home', 
+        element: <Home></Home>,
+      },
+      {
         path: 'allCampaign',
         element: <AllCampaign></AllCampaign>,
         loader: () => fetch('http://localhost:5000/campaign')
@@ -45,7 +49,7 @@ const router = createBrowserRouter([
         // path: 'updateCoffee/:id',
         path: 'Campaign',
         element: <PrivateRoute><Campaign></Campaign></PrivateRoute>,
-        loader: ({ params }) => fetch(`https://coffee-store-server-mqsl4ji21-ridwanul-hoques-projects.vercel.app/coffee/${params.id}`)
+        // loader: () => fetch(`http://localhost:5000/campaign?email=${user.email}`)
       },
       {
         // path: 'updateCoffee/:id',

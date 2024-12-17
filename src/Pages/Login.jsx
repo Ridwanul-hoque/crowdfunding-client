@@ -18,7 +18,7 @@ const Login = () => {
         userLogin(email, password)
             .then(() => {
                 toast.success("Login successful!");
-                navigate("/home");
+                navigate("/");
             })
             .catch((error) => {
                 // console.error("Login error:", error.message); 
@@ -32,7 +32,7 @@ const Login = () => {
         signInWithPopup(auth, provider)
             .then(() => {
                 toast.success("Google Login successful!");
-                navigate("/home");
+                navigate("/");
             })
             .catch((error) => {
                 // console.error("Google login error:", error.message); 
