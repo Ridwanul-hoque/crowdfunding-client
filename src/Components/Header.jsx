@@ -1,7 +1,11 @@
-import React from 'react';
+
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
+import React, { useContext } from 'react';
 
 const Header = () => {
+    const { user, logout } = useContext(AuthContext);
+
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/allCampaign">All Campaign</NavLink></li>
@@ -10,6 +14,12 @@ const Header = () => {
         <li><NavLink to="/donation">My Donations</NavLink></li>
 
     </>
+    const handleLogout = () => {
+        logout()
+            .then(() => console.log('User logged out'))
+            .catch(err => console.error(err));
+    };
+
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -42,9 +52,25 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login'><button className="btn mr-2 bg-orange-400">Login</button></Link>
-                <Link to='/register'><button className="btn bg-orange-400">Register</button></Link>
-                
+                {user ? (
+                    <div className="flex items-center space-x-4">
+                        {user.photoURL && (
+                            <div className="tooltip" data-tip={user.displayName || 'No Name'}>
+                                <img
+                                    src={user.photoURL}
+                                    alt="User Avatar"
+                                    className="w-10 h-10 rounded-full"
+                                />
+                            </div>
+                        )}
+                        <button onClick={handleLogout} className="btn bg-orange-400">Logout</button>
+                    </div>
+                ) : (
+                    <>
+                        <Link to='/login'><button className="btn mr-2 bg-orange-400">Login</button></Link>
+                        <Link to='/register'><button className="btn bg-orange-400">Register</button></Link>
+                    </>
+                )}
             </div>
         </div>
     );

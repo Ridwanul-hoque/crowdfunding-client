@@ -3,7 +3,11 @@ import React from 'react';
 const Footer = () => {
     return (
         <div>
+
             <footer className="footer footer-center bg-base-200 text-base-content rounded p-10">
+                <div>
+                    <img className='w-50 h-40' src="https://i.ibb.co.com/Hhtj8tF/download-7.png" alt="" />
+                </div>
                 <nav className="grid grid-flow-col gap-4">
                     <a className="link link-hover">About us</a>
                     <a className="link link-hover">Contact</a>
@@ -48,7 +52,7 @@ const Footer = () => {
                     </div>
                 </nav>
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © {new Date().getFullYear()} - All right reserved by Crowd Cube</p>
                 </aside>
             </footer>
         </div>
