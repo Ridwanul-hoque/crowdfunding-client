@@ -2,6 +2,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
 import React, { useContext, useEffect, useState } from 'react';
+import { CiLight } from "react-icons/ci";
+import { MdLightMode } from "react-icons/md";
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
@@ -100,8 +102,8 @@ const Header = () => {
                         <Link to='/register'><button className="btn bg-orange-400">Register</button></Link>
                     </>
                 )}
-                <button onClick={toggleTheme} className="btn bg-orange-400">
-                    {isDarkMode ? 'Light Mode' : 'Dark Mode'}
+                <button onClick={toggleTheme} className="btn bg-orange-400 ml-2">
+                    {isDarkMode ? <CiLight></CiLight> : <MdLightMode></MdLightMode>}
                 </button>
             </div>
         </div>

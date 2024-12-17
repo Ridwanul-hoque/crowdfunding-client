@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 
+
 const SignUp = () => {
     const { createUser } = useContext(AuthContext)
 
@@ -13,12 +14,12 @@ const SignUp = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
 
-        console.log("signup", email, password,photo)
+        console.log("signup", email, password, photo)
         createUser(email, password)
             .then(result => {
                 console.log('user created at fb', result.user);
                 const createdAt = result?.user?.metadata?.creationTime;
-                
+
                 const newUser = { name, email, createdAt, photo }
 
 
@@ -34,7 +35,7 @@ const SignUp = () => {
                     .then(res => res.json())
                     .then(data => {
                         console.log('user created to db', data)
-                        if(data.insertedId){
+                        if (data.insertedId) {
                             console.log('user created in db')
 
 
@@ -51,8 +52,10 @@ const SignUp = () => {
     }
     return (
         <div className="hero my-4">
+
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <h1 className='flex justify-center p-2 font-bold text-3xl'>Registration</h1>
                     <form onSubmit={handleSignUp} className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -81,7 +84,7 @@ const SignUp = () => {
                                 <span className="label-text">Photo</span>
                             </label>
                             <input type="text" placeholder="Photo url" name='photo' className="input input-bordered" required />
-                            
+
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn bg-orange-400">Sign Up</button>

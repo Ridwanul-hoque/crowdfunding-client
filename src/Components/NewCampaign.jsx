@@ -1,5 +1,7 @@
 import React from 'react';
 import Swal from 'sweetalert2'
+import { Fade, Zoom } from 'react-awesome-reveal';
+
 
 
 
@@ -48,73 +50,83 @@ const NewCampaign = () => {
     }
     return (
         <div className='bg-orange-100 p-4 rounded-lg mb-6'>
-            <h2 className='text-2xl font-extrabold flex justify-center'>Add Your Campaign</h2>
-             
+            <Zoom>
+                <h2 className='text-2xl font-extrabold flex justify-center'>Add Your Campaign</h2>
+            </Zoom>
+
             <form onSubmit={handleCampaign} className="card-body">
                 {/* form first row */}
-                <div className='flex flex-col lg:flex-row gap-5'>
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text">Campaign Title</span>
-                        </label>
-                        <input type="text" name='title' placeholder="Campaign Title" className="input input-bordered" required />
+                <Fade cascade>
+                    <div className='flex flex-col lg:flex-row gap-5'>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">Campaign Title</span>
+                            </label>
+                            <input type="text" name='title' placeholder="Campaign Title" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">Campaign Type</span>
+                            </label>
+                            <input type="text" name='type' placeholder="Campaign Type" className="input input-bordered" required />
+                        </div>
                     </div>
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text">Campaign Type</span>
-                        </label>
-                        <input type="text" name='type' placeholder="Campaign Type" className="input input-bordered" required />
-                    </div>
-                </div>
+                </Fade>
                 {/* form second row */}
-                <div className='flex flex-col lg:flex-row gap-5'>
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text">Donation Amount (minimum)</span>
-                        </label>
-                        <input type="text" name='amount' placeholder="Donation Amount" className="input input-bordered" required />
+                <Fade cascade>
+                    <div className='flex flex-col lg:flex-row gap-5'>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">Donation Amount (minimum)</span>
+                            </label>
+                            <input type="text" name='amount' placeholder="Donation Amount" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">Deadline</span>
+                            </label>
+                            <input type="text" name='deadline' placeholder="Deadline" className="input input-bordered" required />
+                        </div>
                     </div>
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text">Deadline</span>
-                        </label>
-                        <input type="text" name='deadline' placeholder="Deadline" className="input input-bordered" required />
-                    </div>
-                </div>
+                </Fade>
                 {/* form third row */}
-                <div className='flex flex-col lg:flex-row gap-5'>
-                    <div className="form-control flex-1">
-                        <label className="label">
-                            <span className="label-text">User Email</span>
-                        </label>
-                        <input type="text" name='email' placeholder="User Email" className="input input-bordered" required />
+                <Fade cascade>
+                    <div className='flex flex-col lg:flex-row gap-5'>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">User Email</span>
+                            </label>
+                            <input type="text" name='email' placeholder="User Email" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control flex-1">
+                            <label className="label">
+                                <span className="label-text">User Name</span>
+                            </label>
+                            <input type="text" name='name' placeholder="User Name" className="input input-bordered" required />
+                        </div>
                     </div>
-                    <div className="form-control flex-1">
+                </Fade>
+
+
+                <Fade cascade>
+                    <div className="form-control">
                         <label className="label">
-                            <span className="label-text">User Name</span>
+                            <span className="label-text">Description</span>
                         </label>
-                        <input type="text" name='name' placeholder="User Name" className="input input-bordered" required />
+                        <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
+
                     </div>
-                </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Photo URL</span>
+                        </label>
+                        <input type="text" name='photo' placeholder="Photo url" className="input input-bordered" required />
 
-
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Description</span>
-                    </label>
-                    <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
-
-                </div>
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Photo URL</span>
-                    </label>
-                    <input type="text" name='photo' placeholder="Photo url" className="input input-bordered" required />
-
-                </div>
-                <div className="form-control mt-6">
-                    <button type='submit' className="btn bg-orange-400">Add Coffee</button>
-                </div>
+                    </div>
+                    <div className="form-control mt-6">
+                        <button type='submit' className="btn bg-orange-400">Add Coffee</button>
+                    </div>
+                </Fade>
             </form>
         </div>
     );
