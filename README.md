@@ -70,34 +70,9 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 - MongoDB
 - Firebase Project
 
-### Setup
-1. Clone the repositories:
-   ```bash
-   git clone <client-repo-url>
-   git clone <server-repo-url>
-   ```
-2. Install dependencies:
-   ```bash
-   cd client
-   npm install
-   
-   cd ../server
-   npm install
-   ```
-3. Set up environment variables:
-   - **Client**: Create a `.env` file with Firebase config keys.
-   - **Server**: Add MongoDB credentials to a `.env` file.
 
-4. Start the development servers:
-   ```bash
-   cd client
-   npm start
-   
-   cd ../server
-   npm run dev
-   ```
 
-5. Access the application at `http://localhost:3000`.
+5. Access the application at `http://localhost:5000`.
 
 ## Technology Stack
 - **Frontend**: React.js, Tailwind CSS
@@ -106,8 +81,6 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 - **Authentication**: Firebase
 - **Hosting**: Netlify/Firebase (Client), Vercel (Server)
 
-## Contributions
-Contributions are welcome! Feel free to fork the repository and submit a pull request.
 
-## License
-This project is licensed under the MIT License.
+
+
