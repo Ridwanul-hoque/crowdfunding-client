@@ -1,3 +1,4 @@
+
 # Crowdcube: A Crowd Funding Application
 
 Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundraising for various campaigns, including personal needs, startups, creative ideas, and more. This project adheres to a robust feature set and modern development practices.
@@ -61,18 +62,123 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 - **Server Side**: Hosted on Vercel.
 
 ## Live Site URL
-[(https://crowdfunding-6ef9b.web.app/)]
+[https://crowdfunding-6ef9b.web.app](https://crowdfunding-6ef9b.web.app)
+
+---
 
 ## How to Run Locally
 
 ### Prerequisites
-- Node.js
-- MongoDB
-- Firebase Project
 
+Before running the project locally, ensure you have the following installed on your machine:
 
+- [Node.js](https://nodejs.org/en/) (Latest LTS version recommended)
+- [MongoDB](https://www.mongodb.com/try/download/community) (For local database setup or use MongoDB Atlas)
+- A Firebase Project (For authentication)
 
-5. Access the application at `https://crowdfunding-server-gray.vercel.app`.
+---
+
+### Step-by-Step Guide
+
+### 1️⃣ Clone the Repository  
+Open your terminal and run:
+
+```sh
+git clone https://github.com/your-username/crowdcube.git
+```
+
+Then, navigate to the project folder:
+
+```sh
+cd crowdcube
+```
+
+---
+
+### 2️⃣ Install Dependencies  
+Run the following command to install all required dependencies for both the **client** and **server**:
+
+#### For the client:
+
+```sh
+cd client
+npm install
+```
+
+#### For the server:
+
+```sh
+cd ../server
+npm install
+```
+
+---
+
+### 3️⃣ Configure Environment Variables  
+
+Create a `.env` file in both the **client** and **server** folders and add the following credentials:
+
+#### **Client-side (`client/.env`)**
+```env
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+VITE_SERVER_URL=http://localhost:5000
+```
+
+#### **Server-side (`server/.env`)**
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+CLIENT_URL=http://localhost:5173
+```
+
+---
+
+### 4️⃣ Start the Backend Server  
+
+Inside the `server` directory, start the backend:
+
+```sh
+npm run dev
+```
+
+You should see a message like:
+
+```
+Server is running on http://localhost:5000
+```
+
+---
+
+### 5️⃣ Start the Frontend  
+
+Inside the `client` directory, start the frontend:
+
+```sh
+npm run dev
+```
+
+It will launch the project at:
+
+```
+http://localhost:5173
+```
+
+---
+
+### 6️⃣ Access the Application  
+Once both the backend and frontend are running:
+
+- Open your browser and go to `http://localhost:5173`
+- Sign up or log in using Firebase authentication.
+- Create and manage crowdfunding campaigns.
+
+---
 
 ## Technology Stack
 - **Frontend**: React.js, Tailwind CSS
@@ -81,6 +187,5 @@ Crowdcube is a comprehensive crowdfunding platform designed to facilitate fundra
 - **Authentication**: Firebase
 - **Hosting**: Netlify/Firebase (Client), Vercel (Server)
 
-
-
+---
 
