@@ -166,7 +166,7 @@ npm run dev
 It will launch the project at:
 
 ```
-http://localhost:5173
+http://localhost:5000
 ```
 
 ---
@@ -174,7 +174,7 @@ http://localhost:5173
 ### 6️⃣ Access the Application  
 Once both the backend and frontend are running:
 
-- Open your browser and go to `http://localhost:5173`
+- Open your browser and go to `http://localhost:5000`
 - Sign up or log in using Firebase authentication.
 - Create and manage crowdfunding campaigns.
 
